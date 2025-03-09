@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "d285f0ed-f435-4450-ba08-aef7dcc739eb",
+		"name": "purpleplum_customer",
+		"description": "Postman Collection for CRUD operations on Customer entity with pagination, sorting, and filtering",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9883199"
+	},
+	"item": [
+		{
+			"name": "Create Customer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"customerName\": \"John Doe\",\n  \"customerAddress1\": \"123 Main St\",\n  \"customerAddress2\": \"Apt 4B\",\n  \"customerCity\": \"New York\",\n  \"customerState\": \"NY\",\n  \"customerCountry\": \"USA\",\n  \"customerMobile\": \"1234567890\",\n  \"customerIdentifier\": \"ID123\",\n  \"customerIdentifierNumber\": \"123456\",\n  \"customerEmail\": \"johndoe@example.com\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/api/customers",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Customers with Pagination and Sorting",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/customers?page=0&size=10&sortBy=customerName&sortDir=asc",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customers"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "sortBy",
+							"value": "customerName"
+						},
+						{
+							"key": "sortDir",
+							"value": "asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/customers/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Customer by ID",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"customerName\": \"John Doe Updated\",\n  \"customerAddress1\": \"123 Main St\",\n  \"customerAddress2\": \"Apt 4B\",\n  \"customerCity\": \"New York\",\n  \"customerState\": \"NY\",\n  \"customerCountry\": \"USA\",\n  \"customerMobile\": \"9876543210\",\n  \"customerIdentifier\": \"ID123\",\n  \"customerIdentifierNumber\": \"123456\",\n  \"customerEmail\": \"johndoeupdated@example.com\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/api/customers/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Customer by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/customers/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Customers by Filter (Name)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/customers?filter=John&page=0&size=10&sortBy=customerName&sortDir=asc",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customers"
+					],
+					"query": [
+						{
+							"key": "filter",
+							"value": "John"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "sortBy",
+							"value": "customerName"
+						},
+						{
+							"key": "sortDir",
+							"value": "asc"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
