@@ -44,6 +44,14 @@ public class CustomerServiceImpl {
     	return customerModel;
     }
     
+    // Fetch customer by ID with Decrypted Identifier
+    public CustomerModel getCustomerDecrypted(Long customerId) {
+    	CustomerEntity customerEntity = customerRepository.findByCustomerId(customerId);
+        CustomerModel customerModel = customerTransformer.convertEntityToModel(customerEntity);
+        customerModel.setCustomerIdentifierNumber(customerEntity.getDecryptedCustomerIdentifierNumber());
+    	return customerModel;
+    }
+    
  // Create a new customer
     public CustomerModel createCustomer(CustomerModel customer) {
     	CustomerEntity customerEntity = customerTransformer.convertModelToEntity(customer);

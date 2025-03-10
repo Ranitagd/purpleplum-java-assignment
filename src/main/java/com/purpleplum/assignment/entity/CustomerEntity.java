@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.purpleplum.assignment.service.EncryptionUtils;
+
 @Entity
 @Table(name="customer_master")
 public class CustomerEntity {
@@ -123,8 +125,23 @@ public class CustomerEntity {
 	}
 
 	public void setCustomerIdentifierNumber(String customerIdentifierNumber) {
-		this.customerIdentifierNumber = customerIdentifierNumber;
-	}
+        try {
+            // Encrypt the value before setting it
+            this.customerIdentifierNumber = EncryptionUtils.encrypt(customerIdentifierNumber);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Decrypt customerIdentifierNumber when getting it
+    public String getDecryptedCustomerIdentifierNumber() {
+        try {
+            return EncryptionUtils.decrypt(this.customerIdentifierNumber);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 	public String getCustomerEmail() {
 		return customerEmail;

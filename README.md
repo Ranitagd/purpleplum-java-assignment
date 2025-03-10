@@ -38,11 +38,18 @@ Clone the project to your local machine:
 	spring.jpa.hibernate.ddl-auto=update
 	spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
 	spring.jpa.show-sql=true
+
+	# AES Secret Key for Encryption (16 bytes for AES-128)
+	aes.secret.key=1234567890abcdef
 	
 #### 4. Build the Project Using Maven:
 	mvn clean install
 
 #### 5. Run the Spring Boot Application
+
+#### 7. Implement Encryption and Decryption
+	The customer’s customerIdentifierNumber field is sensitive information and is encrypted before storing it in the database.
+	When the Get API is called the customerIdentifierNumber is descrypted back and returned.
 
 #### 6. Test the APIs
 	You can now test the APIs using Postman or directly via browser for simple GET requests.
@@ -53,6 +60,7 @@ Clone the project to your local machine:
 	(filter query param accepts customer to be filtered by Country, State, Email)
 	(sorting is asc by default if not provided)
 	GET /api/customers/{id} - Get a customer by ID.
+	GET /api/customers/decrypt/{id} - Get a customer by ID with Decrypted Identifier Numbeer.
 	PUT /api/customers/{id} - Update a customer by ID.
 	DELETE /api/customers/{id} - Delete a customer by ID.
 	
@@ -66,5 +74,6 @@ Clone the project to your local machine:
 	(filter query param accepts customer to be filtered by Country, State, Email)
 	(sorting is asc by default if not provided)
 	GET /api/customers/{id} - Get a customer by ID.
+	GET /api/customers/decrypt/{id} - Get a customer by ID with Decrypted Identifier Numbeer.
 	PUT /api/customers/{id} - Update a customer by ID.
 	DELETE /api/customers/{id} - Delete a customer by ID.

@@ -19,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"customerName\": \"John Doe\",\n  \"customerAddress1\": \"123 Main St\",\n  \"customerAddress2\": \"Apt 4B\",\n  \"customerCity\": \"New York\",\n  \"customerState\": \"NY\",\n  \"customerCountry\": \"USA\",\n  \"customerMobile\": \"1234567890\",\n  \"customerIdentifier\": \"ID123\",\n  \"customerIdentifierNumber\": \"123456\",\n  \"customerEmail\": \"johndoe@example.com\"\n}"
+					"raw": "{\n  \"customerName\": \"Sachin Tendulkar\",\n  \"customerAddress1\": \"12/A Bandra Worli Sea Link\",\n  \"customerCity\": \"Mumbai\",\n  \"customerState\": \"Maharashtra\",\n  \"customerCountry\": \"India\",\n  \"customerMobile\": \"1234567891\",\n  \"customerIdentifier\": \"ID123\",\n  \"customerIdentifierNumber\": \"123457\",\n  \"customerEmail\": \"johndoe1@example.com\"\n}"
 				},
 				"url": {
 					"raw": "localhost:8080/api/customers",
@@ -41,7 +41,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/customers?page=0&size=10&sortBy=customerName&sortDir=asc",
+					"raw": "localhost:8080/api/customers?page=0&size=10&sortBy=customerName&sortDir=desc",
 					"host": [
 						"localhost"
 					],
@@ -65,7 +65,7 @@
 						},
 						{
 							"key": "sortDir",
-							"value": "asc"
+							"value": "desc"
 						}
 					]
 				}
@@ -78,7 +78,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/customers/1",
+					"raw": "localhost:8080/api/customers/5",
 					"host": [
 						"localhost"
 					],
@@ -86,7 +86,27 @@
 					"path": [
 						"api",
 						"customers",
-						"1"
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer by ID (With decrypted Identifier))",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/customers/5",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customers",
+						"5"
 					]
 				}
 			},
@@ -104,10 +124,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"customerName\": \"John Doe Updated\",\n  \"customerAddress1\": \"123 Main St\",\n  \"customerAddress2\": \"Apt 4B\",\n  \"customerCity\": \"New York\",\n  \"customerState\": \"NY\",\n  \"customerCountry\": \"USA\",\n  \"customerMobile\": \"9876543210\",\n  \"customerIdentifier\": \"ID123\",\n  \"customerIdentifierNumber\": \"123456\",\n  \"customerEmail\": \"johndoeupdated@example.com\"\n}"
+					"raw": "{\n  \"customerName\": \"Ricky Ponting\",\n  \"customerAddress1\": \"123 Main St\",\n  \"customerAddress2\": \"Apt 4B\",\n  \"customerCity\": \"Sydney\",\n  \"customerState\": \"Victoria\",\n  \"customerCountry\": \"Australia\",\n  \"customerMobile\": \"765298765\",\n  \"customerIdentifier\": \"AUID123\",\n  \"customerIdentifierNumber\": \"AU123456\",\n  \"customerEmail\": \"player@example.com\"\n}"
 				},
 				"url": {
-					"raw": "localhost:8080/api/customers/1",
+					"raw": "localhost:8080/api/customers/5",
 					"host": [
 						"localhost"
 					],
@@ -115,7 +135,7 @@
 					"path": [
 						"api",
 						"customers",
-						"1"
+						"5"
 					]
 				}
 			},
@@ -142,12 +162,12 @@
 			"response": []
 		},
 		{
-			"name": "Search Customers by Filter (Name)",
+			"name": "Search Customers by Filter (Email/State/Country)",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/customers?filter=John&page=0&size=10&sortBy=customerName&sortDir=asc",
+					"raw": "localhost:8080/api/customers?filter=player&page=0&size=10&sortBy=customerName&sortDir=asc",
 					"host": [
 						"localhost"
 					],
@@ -159,7 +179,7 @@
 					"query": [
 						{
 							"key": "filter",
-							"value": "John"
+							"value": "player"
 						},
 						{
 							"key": "page",

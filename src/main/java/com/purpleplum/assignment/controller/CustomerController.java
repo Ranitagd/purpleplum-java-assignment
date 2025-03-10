@@ -38,6 +38,12 @@ public class CustomerController {
         return customerService.getCustomerById(customerId);
     }
     
+    // Get decrypted identifier
+    @GetMapping("decrypt/{customerId}")
+    public CustomerModel getCustomerDecrypted(@PathVariable Long customerId) {
+        return customerService.getCustomerDecrypted(customerId);
+    }
+    
  // Create a new customer
     @PostMapping
     public ResponseEntity<CustomerModel> createCustomer(@RequestBody CustomerModel customer) {
